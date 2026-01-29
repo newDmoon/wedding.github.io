@@ -1,56 +1,28 @@
-// Scroll animation
-const sections = document.querySelectorAll("section");
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(
-      (entry) => entry.isIntersecting && entry.target.classList.add("visible"),
-    );
-  },
-  { threshold: 0.2 },
-);
-sections.forEach((s) => observer.observe(s));
+function updateTimer() {
+    const weddingDate = new Date('April 18, 2026 16:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-// Guest personalization
-const params = new URLSearchParams(window.location.search);
-const guest = params.get("guest");
-document.getElementById("guestText").innerHTML = guest
-  ? `<strong>${guest}</strong>, мы будем счастливы видеть вас на нашем празднике 🤍`
-  : `Мы будем рады разделить этот день вместе с вами`;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-// Countdown
-const weddingDate = new Date("April 16, 2026 00:00:00").getTime();
-const timer = document.getElementById("timer");
+    const timerElement = document.getElementById('timer');
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = weddingDate - now;
+    if (distance < 0) {
+        clearInterval(timerInterval);
+        timerElement.innerHTML = "Этот счастливый день настал!";
+        return;
+    }
 
-  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    timerElement.innerHTML = `
+        <div class="time-block"><span>${days} :</span></div>
+        <div class="time-block"><span>${hours} :</span></div>
+        <div class="time-block"><span>${minutes} :</span></div>
+        <div class="time-block"><span>${seconds}</span></div>
+    `;
+}
 
-  timer.innerHTML = `
-<div class="time-item">
-      <div class="time-value">${d}</div>
-      <div class="time-label">дней</div>
-    </div>
-    <div class="time-item">
-      <div class="time-value">${h}</div>
-      <div class="time-label">часов</div>
-    </div>
-  `;
-}, 1000);
-
-const menu = document.querySelector('#mobile-menu');
-const menuLinks = document.querySelector('.nav-list');
-
-menu.addEventListener('click', () => {
-  menu.classList.toggle('active');
-  menuLinks.classList.toggle('active');
-});
-
-document.querySelectorAll('.nav-list a').forEach(link => {
-  link.addEventListener('click', () => {
-    menu.classList.remove('active');
-    menuLinks.classList.remove('active');
-  });
-});
+const timerInterval = setInterval(updateTimer, 1000);
+updateTimer();
