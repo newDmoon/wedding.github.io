@@ -12,6 +12,14 @@
   </head>
 
   <body>
+    <section class="dark-section">
+      <p>
+        С огромной радостью и большой любовью приглашаем вас разделить с нами
+        трогательный и важный момент нашей жизни! Мы будем очень рады видеть вас
+        в числе гостей на нашем первом семейном празднике
+      </p>
+    </section>
+
     <!-- HERO -->
     <section id="hero">
       <div class="photo-with-date">
@@ -32,44 +40,100 @@
     </section>
 
     <!-- INVITE -->
-    <section class="dark-section">
-      <h3>ДОРОГИЕ РОДНЫЕ И ДРУЗЬЯ (не готово)</h3>
-      <p>
-        Один день в этом году станет для вас осоенным и мы хотим провести его в
-        кругу близких и друзей. С большим удовольствием приглашаем Вас на наш
-        первый семейный праздник - нашу свадьбу.
-      </p>
-      <div class="invite-image">
-        <img src="invite.png" alt="Wedding invite" />
-      </div>
+    <section class="dark-section invite-section">
+      <div class="invite-content">
+        <h3>Дорогие родные и друзья</h3>
 
-      <div class="calendar-date"></div>
+        <p class="main-text">
+          Один день в этом году станет для нас особенным, и мы хотим провести
+          его в кругу самых близких. С большим удовольствием приглашаем Вас на
+          наш первый семейный праздник — нашу свадьбу.
+        </p>
+
+        <blockquote class="quote">
+          «Зорко одно лишь сердце. Самого главного глазами не увидишь»
+          <span>— Антуан де Сент-Экзюпери</span>
+        </blockquote>
+
+        <div class="calendar-wrapper">
+          <h4 class="calendar-month">Апрель 2026</h4>
+          <div class="calendar-grid">
+            <div>Пн</div>
+            <div>Вт</div>
+            <div>Ср</div>
+            <div>Чт</div>
+            <div>Пт</div>
+            <div class="weekend">Сб</div>
+            <div class="weekend">Вс</div>
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+            <div class="marked">18</div>
+            <div>19</div>
+            <div>20</div>
+            <div>21</div>
+            <div>22</div>
+            <div>23</div>
+            <div>24</div>
+            <div>25</div>
+            <div>26</div>
+            <div>27</div>
+            <div>28</div>
+            <div>29</div>
+            <div>30</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- COUNTDOWN -->
     <section id="countdown">
-      <h2>До свадьбы осталось (не готово)</h2>
+      <h2>До свадьбы осталось</h2>
       <div class="divider"></div>
       <div class="countdown" id="timer"></div>
     </section>
 
     <!-- LOCATION -->
     <section id="location" class="dark-section">
-      <h2>Место проведения (не готово)</h2>
-      <p class="text">Наш праздник пройдет в живописной усадьбе «Royal Hall»</p>
-      <p class="text">
-        Она находится по адресу: Логойский р-н, д.Чуденичи, ул. Лесная д.2А. 25
-        км (20 минут) от МКАД
-      </p>
+      <h2>Место проведения</h2>
 
       <div class="location-image">
         <img src="location.jpg" alt="Wedding location" />
       </div>
+      <p class="venue-name">Усадьба «Royal Hall»</p>
+
+      <p class="address">
+        Логойский р-н, д.Чуденичи, ул. Лесная 2А<br />
+        <span>25 км (20 минут) от МКАД</span>
+      </p>
+
+      <a
+        href="https://yandex.by/maps/-/CLxljNnu"
+        target="_blank"
+        class="map-button"
+        >Открыть карту</a
+      >
     </section>
 
     <!-- SCHEDULE -->
     <section id="schedule">
-      <h2>Программа дня (не готово)</h2>
+      <h2>Программа дня</h2>
       <div class="divider"></div>
 
       <div class="timeline">
@@ -93,10 +157,10 @@
           <div class="time">17:00</div>
           <div class="content">
             <h3>Банкет</h3>
-            <p>Время вкусной еды, танцев и развлечений</p>
+            <p>Будет много танцев, веселья, поздравлений и, конечно, любви</p>
           </div>
         </div>
-        
+
         <div class="timeline-item">
           <div class="time">23:00</div>
           <div class="content">
@@ -111,41 +175,9 @@
       </div>
     </section>
 
-    <!-- DRESS-CODE -->
-    <section id="dress-code">
-      <h2>ДРЕСС-КОД (не готово)</h2>
-      <div class="divider"></div>
-      <p>
-        Мы очень старались сделать праздник красивым и будем рады, если в своих
-        нарядах Вы придержитесь стиля нашей свадьбы и нашей цветовой палитры
-      </p>
-
-      <div class="dress-code-circle-colors">
-        <div class="color-circle" style="background-color: #5e1f20"></div>
-        <div class="color-circle" style="background-color: #e5d3b3"></div>
-        <div class="color-circle" style="background-color: #7d7d7d"></div>
-        <div class="color-circle" style="background-color: #ffffff; stroke-width: 2;"></div>
-      </div>
-    </section>
-
-    <!-- DETAILS -->
-    <section id="details" class="dark-section">
-      <h2>ДЕТАЛИ (не готово)</h2>
-      <p>
-        Какие-то детали
-      </p>
-      <p>
-        Какие-то детали
-      </p>
-      <p>
-        Какие-то детали
-      </p>
-    </section>
-
     <!-- RSVP -->
-    <section id="rsvp">
+    <section id="rsvp" class="dark-section">
       <h2>Подтвердите присутствие (не готово)</h2>
-      <div class="divider"></div>
     </section>
 
     <footer>Владислав & Дарья © 2026</footer>

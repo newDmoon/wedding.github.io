@@ -1,8 +1,8 @@
 /* ОБЩИЕ СТИЛИ */
 :root {
   --primary-color: #5a5a5a; /* Темно-серый для текста */
-  --accent-color: #5e1f20;  /* Золотистый акцент */
-  --bg-color: #fdfcfb;      /* Молочный фон */
+  --accent-color: #5e1f20; /* Золотистый акцент */
+  --bg-color: #fdfcfb; /* Молочный фон */
   --text-light: #888888;
 }
 
@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: var(--bg-color);
   color: var(--primary-color);
   line-height: 1.6;
@@ -21,7 +21,7 @@ body {
 }
 
 section {
-  padding: 80px 20px;
+  padding: 40px 20px;
   width: 100%;
   position: relative;
 }
@@ -32,11 +32,13 @@ section > * {
   margin-right: auto;
 }
 
-h2, h3 {
-  font-family: 'Playfair Display', serif;
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
   font-weight: 400;
   letter-spacing: 2px;
   margin-bottom: 20px;
+  margin-top: 20px;
   text-transform: uppercase;
 }
 
@@ -50,22 +52,24 @@ h2, h3 {
 img {
   max-width: 100%;
   height: auto;
-  border-radius: 4px;
+  border-radius: 7px;
 }
 
 /* СТИЛИ ДЛЯ ТЕМНЫХ СЕКЦИЙ */
 .dark-section {
   background-color: #2c2c2c; /* Глубокий графитовый или черный */
-  color: #ffffff;            /* Белый текст */
+  color: #ffffff; /* Белый текст */
 }
 
-.dark-section h2, 
+.dark-section h2,
 .dark-section h3 {
   color: #ffffff;
 }
 
 .dark-section .divider {
-  background-color: var(--accent-color); /* Золотой разделитель будет отлично смотреться на темном */
+  background-color: var(
+    --accent-color
+  ); /* Золотой разделитель будет отлично смотреться на темном */
 }
 
 .dark-section p {
@@ -73,7 +77,7 @@ img {
 }
 
 .dark-section .time-block span {
-  color: var(--accent-color); 
+  color: var(--accent-color);
 }
 
 /* HERO SECTION */
@@ -104,8 +108,8 @@ img {
   right: -20px;
   background: white;
   padding: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  font-family: 'Playfair Display', serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: "Playfair Display", serif;
 }
 
 .hero-date p {
@@ -116,7 +120,7 @@ img {
 }
 
 .hero-names {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 2.5rem;
   line-height: 1.2;
 }
@@ -134,7 +138,7 @@ img {
 }
 
 .time {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 1.5rem;
   min-width: 80px;
   color: var(--accent-color);
@@ -148,27 +152,186 @@ img {
   text-transform: none;
 }
 
-/* DRESS-CODE COLORS */
-.dress-code-circle-colors {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
+
+/* LOCATION */
+.location-image {
+  margin-top: 1rem;
 }
 
-/* Пример кружков палитры (нужно добавить их в HTML или через JS) */
-.color-circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+/* Контейнер для контента */
+.location-content {
+    padding: 40px 20px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Заголовок (уже есть в общем стиле, но добавим отступ) */
+.section-title {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+/* Название усадьбы — делаем его акцентным */
+.venue-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+/* Адрес — делаем его легче */
+.address {
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+    color: #f0f0f0;
+}
+
+/* Дополнительная инфо (про км от МКАД) */
+.address span {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    display: block;
+    margin-top: 10px;
+}
+
+.map-button {
     display: inline-block;
-    margin: 5px;
-    border: 2px solid #000000; /* Контур черного цвета, толщиной 2px */
+    margin-top: 30px;
+    padding: 14px 35px; /* Чуть увеличил для солидности */
+    
+    /* Начальное состояние: прозрачный фон и белая рамка */
+    background-color: transparent;
+    border: 1px solid #ffffff; 
+    color: #ffffff;
+    
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    
+    /* Плавность перехода: 0.4s обычно выглядит более "дорого", чем 0.3s */
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    cursor: pointer;
+}
+
+.map-button:hover {
+    /* Состояние при наведении */
+    background-color: #ffffff; /* Полностью белый фон */
+    color: #000000;            /* Полностью черный текст */
+    border-color: #ffffff;     /* Рамка тоже белая, чтобы не было зазоров */
+    
+    /* Легкое приподнятие кнопки (опционально, для интерактивности) */
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* INVITE */
+.invite-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+.main-text {
+  margin-bottom: 30px;
+}
+
+/* СТИЛЬ ЦИТАТЫ */
+.quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  margin: 40px auto;
+  padding: 0 20px;
+  position: relative;
+  max-width: 500px;
+}
+
+.quote span {
+  display: block;
+  font-style: normal;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-top: 10px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+/* КАЛЕНДАРЬ */
+.calendar-wrapper {
+  margin-top: 50px;
+  display: inline-block;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.calendar-month {
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.calendar-grid div {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-grid div:nth-child(-n+7) {
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: white;
+}
+
+.weekend {
+  opacity: 0.6;
+}
+
+.marked {
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 50%;
+  font-weight: 600;
+  position: relative;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(94, 31, 32, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(94, 31, 32, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(94, 31, 32, 0); }
+}
+
+@media (max-width: 480px) {
+  .calendar-grid div {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+}
+
+.invite-image {
+  margin-top: 1rem;
 }
 
 /* COUNTDOWN */
 #timer {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 2rem;
   display: flex;
   justify-content: center;
@@ -185,47 +348,49 @@ footer {
 
 /* АДАПТИВНОСТЬ */
 @media (max-width: 600px) {
-  .hero-names { font-size: 1.8rem; }
-  section { padding: 40px 15px; }
+  .hero-names {
+    font-size: 1.8rem;
+  }
+  section {
+    padding: 40px 15px;
+  }
 }
 
-
-
-
-
-
-
 #timer {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .time-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
 }
 
 .time-block span {
-    font-size: 2.5rem;
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    color: var(--accent-color);
-    line-height: 1;
+  font-size: 2.5rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  color: var(--accent-color);
+  line-height: 1;
 }
 
 .time-block p {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 5px;
-    color: var(--text-light);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  color: var(--text-light);
 }
 
 @media (max-width: 480px) {
-    #timer { gap: 10px; }
-    .time-block span { font-size: 1.8rem; }
+  #timer {
+    gap: 10px;
+  }
+  .time-block span {
+    font-size: 1.8rem;
+  }
 }
