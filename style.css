@@ -33,32 +33,107 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(242, 233, 230, 0.9);
-  backdrop-filter: blur(6px);
+  background: rgba(242, 233, 230, 0.95);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--accent-soft);
-  z-index: 1000;
+  z-index: 2000;
 }
 
-nav ul {
+.nav-container {
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  list-style: none;
+  justify-content: center; /* Центрирование для десктопа */
+  align-items: center;
   padding: 15px;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
   gap: 25px;
 }
 
-nav a {
+.nav-list a {
   text-decoration: none;
   color: var(--accent);
   font-weight: 500;
+  transition: opacity 0.3s;
 }
 
-nav a:hover {
-  text-decoration: underline;
+/* Иконка гамбургера (скрыта на ПК) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.bar {
+  width: 25px;
+  height: 2px;
+  background-color: var(--accent);
+  transition: 0.3s;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+@media (max-width: 768px) {
+  .nav-container {
+    justify-content: flex-end; /* Кнопка меню справа */
+  }
+
+  .menu-toggle {
+    display: flex;
+    z-index: 2001;
+  }
+
+  .nav-list {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Спрятано за экраном */
+    flex-direction: column;
+    background: var(--bg-main);
+    width: 70%;
+    height: 100vh;
+    padding-top: 80px;
+    text-align: center;
+    transition: 0.4s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-list.active {
+    right: 0; /* Выезжает при клике */
+  }
+
+  .nav-list li {
+    margin: 15px 0;
+  }
+
+  .nav-list a {
+    font-size: 1.2rem;
+  }
+
+  /* Анимация крестика при открытии */
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }
 
 /* ===== LAYOUT ===== */
 .container {
+  max-width: 900px;
+  margin: auto;
+  padding: 120px 20px 60px;
+  text-align: center;
+}
+
+.container-content {
   max-width: 900px;
   margin: auto;
   padding: 120px 20px 60px;
@@ -70,6 +145,7 @@ section {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.9s ease;
+  text-align: center;
 }
 
 section.visible {
@@ -77,13 +153,19 @@ section.visible {
   transform: translateY(0);
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: "Playfair Display", serif;
   color: var(--accent);
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2rem; margin-bottom: 20px; }
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
 
 .divider {
   width: 90px;
@@ -141,7 +223,9 @@ h2 { font-size: 2rem; margin-bottom: 20px; }
   height: 300px;
   object-fit: cover;
   border-radius: 6px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .gallery img:hover {
@@ -149,7 +233,7 @@ h2 { font-size: 2rem; margin-bottom: 20px; }
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== MAP ===== */
+/* ===== LOCATION ===== */
 iframe {
   width: 100%;
   height: 350px;
@@ -158,8 +242,24 @@ iframe {
   margin-top: 25px;
 }
 
+#location {
+  background-color: #27252c;
+  color: #ffffff;
+}
+
+#location h2 {
+  color: #ffffff;
+}
+
+.divider {
+  background-color: #ffffff;
+}
+
 /* ===== RSVP ===== */
-input, select, textarea, button {
+input,
+select,
+textarea,
+button {
   width: 100%;
   padding: 12px;
   margin-top: 10px;
@@ -182,9 +282,15 @@ footer {
 }
 
 @media (max-width: 600px) {
-  h1 { font-size: 2.2rem; }
-  .names { font-size: 2rem; }
-  .countdown { flex-direction: column; }
+  h1 {
+    font-size: 2.2rem;
+  }
+  .names {
+    font-size: 2rem;
+  }
+  .countdown {
+    flex-direction: row;
+  }
 }
 
 /* ===== SCHEDULE (MODERN ROMANTIC) ===== */
@@ -205,23 +311,25 @@ footer {
   border: 1px solid rgba(122, 58, 58, 0.25);
   border-radius: 14px;
   backdrop-filter: blur(6px);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .timeline-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
 .time {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 1.6rem;
   color: var(--accent);
   min-width: 90px;
 }
 
 .content h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 1.25rem;
   margin-bottom: 6px;
   color: var(--accent);
@@ -240,5 +348,60 @@ footer {
 
   .time {
     font-size: 1.4rem;
+  }
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; 
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.time-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+}
+
+.time-value {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem; /* Очень крупный размер */
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.time-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-main);
+  opacity: 0.7;
+}
+
+/* Если таймер находится в темной секции (section-dark) */
+.section-dark .time-value {
+  color: #ffffff;
+}
+.section-dark .time-label {
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .time-value {
+    font-size: 2.5rem; /* Чуть меньше на телефонах */
+  }
+  .countdown {
+    gap: 15px;
+  }
+  .time-item {
+    min-width: 70px;
   }
 }
