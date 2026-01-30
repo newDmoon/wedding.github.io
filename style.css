@@ -1,8 +1,8 @@
 /* ОБЩИЕ СТИЛИ */
 :root {
-  --primary-color: #5a5a5a; /* Темно-серый для текста */
-  --accent-color: #5e1f20; /* Золотистый акцент */
-  --bg-color: #fdfcfb; /* Молочный фон */
+  --primary-color: #5a5a5a;
+  --accent-color: #5e1f20;
+  --bg-color: #fdfcfb;
   --text-light: #888888;
 }
 
@@ -55,10 +55,10 @@ img {
   border-radius: 7px;
 }
 
-/* СТИЛИ ДЛЯ ТЕМНЫХ СЕКЦИЙ */
+/* DARK STYLES */
 .dark-section {
-  background-color: #2c2c2c; /* Глубокий графитовый или черный */
-  color: #ffffff; /* Белый текст */
+  background-color: #2c2c2c;
+  color: #ffffff;
 }
 
 .dark-section h2,
@@ -67,9 +67,7 @@ img {
 }
 
 .dark-section .divider {
-  background-color: var(
-    --accent-color
-  ); /* Золотой разделитель будет отлично смотреться на темном */
+  background-color: var(--bg-color);
 }
 
 .dark-section p {
@@ -81,48 +79,79 @@ img {
 }
 
 /* HERO SECTION */
-#hero {
+.hero-full {
   height: 100vh;
+  width: 100%;
+  padding: 0 !important; 
+  background-image: url('wedding-image.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background: #f4f1ee; /* Цвет подложки пока нет фото */
-}
-
-.photo-with-date {
+  justify-content: center;
   position: relative;
-  margin-bottom: 30px;
 }
 
-.hero-image img {
-  width: 300px;
-  height: 400px;
-  object-fit: cover;
-  box-shadow: 20px 20px 0px rgba(212, 175, 55, 0.1);
+.hero-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.hero-date {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  background: white;
-  padding: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  font-family: "Playfair Display", serif;
+.hero-content {
+  max-width: 800px;
+  width: 100%;
 }
 
-.hero-date p {
-  line-height: 1;
-  font-size: 1.2rem;
-  border-bottom: 1px solid #eee;
-  padding: 2px 0;
+#hero-title p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .hero-names {
   font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  line-height: 1.2;
+  font-size: 3.5rem !important; 
+  margin-bottom: 30px;
+}
+
+.ampersand {
+  font-size: 2rem;
+  opacity: 0.8;
+  margin: 10px 0;
+}
+
+.hero-date-line {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  letter-spacing: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .hero-names {
+    font-size: 2.5rem !important;
+  }
+  
+  #hero-title p {
+    font-size: 0.9rem;
+  }
+  
+  .hero-full {
+    background-attachment: scroll;
+  }
 }
 
 /* TIMELINE (SCHEDULE) */
@@ -152,80 +181,70 @@ img {
   text-transform: none;
 }
 
-
 /* LOCATION */
 .location-image {
   margin-top: 1rem;
 }
 
-/* Контейнер для контента */
 .location-content {
-    padding: 40px 20px;
-    z-index: 2;
-    position: relative;
+  padding: 40px 20px;
+  z-index: 2;
+  position: relative;
 }
 
-/* Заголовок (уже есть в общем стиле, но добавим отступ) */
 .section-title {
-    margin-bottom: 10px;
-    font-size: 2rem;
+  margin-bottom: 10px;
+  font-size: 2rem;
 }
 
-/* Название усадьбы — делаем его акцентным */
 .venue-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-style: italic;
-    color: var(--white);
-    margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--white);
+  margin-bottom: 15px;
 }
 
-/* Адрес — делаем его легче */
 .address {
-    font-weight: 300;
-    letter-spacing: 0.5px;
-    line-height: 1.8;
-    color: #f0f0f0;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 1.8;
+  color: #f0f0f0;
 }
 
-/* Дополнительная инфо (про км от МКАД) */
 .address span {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    display: block;
-    margin-top: 10px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  display: block;
+  margin-top: 10px;
 }
 
 .map-button {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 14px 35px; /* Чуть увеличил для солидности */
-    
-    /* Начальное состояние: прозрачный фон и белая рамка */
-    background-color: transparent;
-    border: 1px solid #ffffff; 
-    color: #ffffff;
-    
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    font-weight: 500;
-    
-    /* Плавность перехода: 0.4s обычно выглядит более "дорого", чем 0.3s */
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-    cursor: pointer;
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 35px;
+
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
 }
 
 .map-button:hover {
-    /* Состояние при наведении */
-    background-color: #ffffff; /* Полностью белый фон */
-    color: #000000;            /* Полностью черный текст */
-    border-color: #ffffff;     /* Рамка тоже белая, чтобы не было зазоров */
-    
-    /* Легкое приподнятие кнопки (опционально, для интерактивности) */
-    transform: translateY(-2px); 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* INVITE */
@@ -234,14 +253,12 @@ img {
   margin: 0 auto;
 }
 
-
 .main-text {
   margin-bottom: 30px;
 }
 
-/* СТИЛЬ ЦИТАТЫ */
 .quote {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-style: italic;
   font-size: 1.2rem;
   margin: 40px auto;
@@ -260,7 +277,6 @@ img {
   opacity: 0.7;
 }
 
-/* КАЛЕНДАРЬ */
 .calendar-wrapper {
   margin-top: 50px;
   display: inline-block;
@@ -270,7 +286,7 @@ img {
 }
 
 .calendar-month {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 20px;
@@ -292,7 +308,7 @@ img {
   justify-content: center;
 }
 
-.calendar-grid div:nth-child(-n+7) {
+.calendar-grid div:nth-child(-n + 7) {
   font-weight: 600;
   font-size: 0.7rem;
   color: white;
@@ -312,9 +328,18 @@ img {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(94, 31, 32, 0.7); }
-  70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(94, 31, 32, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(94, 31, 32, 0); }
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(94, 31, 32, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(94, 31, 32, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(94, 31, 32, 0);
+  }
 }
 
 @media (max-width: 480px) {
@@ -392,5 +417,83 @@ footer {
   }
   .time-block span {
     font-size: 1.8rem;
+  }
+}
+
+/* RSPV */
+.rsvp-container {
+  max-width: 600px !important;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.rsvp-text {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.rsvp-text strong {
+    font-weight: 600; 
+    color: white; 
+    border-bottom: 1px solid white; 
+    padding-bottom: 2px;
+    white-space: nowrap; 
+}
+
+.rsvp-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.telegram-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  padding: 15px 25px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  height: auto;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  transition: all 0.4s ease;
+  border-radius: 2px;
+  flex: 1;
+  max-width: 300px;
+}
+
+.telegram-btn .icon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.telegram-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.rsvp-note {
+  margin-top: 50px;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .rsvp-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
   }
 }
