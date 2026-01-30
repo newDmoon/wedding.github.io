@@ -161,13 +161,13 @@ img {
 }
 
 @keyframes fadeInRight {
-  from { opacity: 0; transform: rotate(-5deg) translateX(-100px); }
-  to { opacity: 1; transform: rotate(-5deg) translateX(-25px); }
+  from { opacity: 0; transform: translateX(-100px); }
+  to { opacity: 1; transform: translateX(-25px); }
 }
 
 @keyframes fadeInLeft {
-  from { opacity: 0; transform: rotate(-5deg) translateX(100px); }
-  to { opacity: 1; transform: rotate(-5deg) translateX(25px); }
+  from { opacity: 0; transform: translateX(100px); }
+  to { opacity: 1; transform: translateX(25px); }
 }
 
 @keyframes fadeInSimple {
@@ -207,13 +207,13 @@ img {
   }
 
   @keyframes fadeInRightMob {
-    from { opacity: 0; transform: rotate(-5deg) translateX(-60px); }
-    to { opacity: 1; transform: rotate(-5deg) translateX(-15px); }
+    from { opacity: 0; transform: translateX(-60px); }
+    to { opacity: 1; transform: translateX(-15px); }
   }
 
   @keyframes fadeInLeftMob {
-    from { opacity: 0; transform: rotate(-5deg) translateX(60px); }
-    to { opacity: 1; transform: rotate(-5deg) translateX(15px); }
+    from { opacity: 0; transform: translateX(60px); }
+    to { opacity: 1; transform: translateX(15px); }
   }
 }
 
